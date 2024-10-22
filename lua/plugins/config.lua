@@ -7,35 +7,6 @@ return {
     end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      sort = {
-        sorter = "case_sensitive",
-      },
-      view = {
-        width = 30,
-      },
-      renderer = {
-        icons = {
-          show = {
-            file = true,
-          },
-          glyphs = {
-            default = "",
-            folder = {
-              arrow_closed = "▸",
-              arrow_open = "▾",
-            },
-          },
-        },
-      },
-    },
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
-    opts = { color_icons = false },
-  },
-  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -64,31 +35,4 @@ return {
   },
   { "rcarriga/nvim-notify" },
   { "folke/noice.nvim", opts = { cmdline = { enabled = true } } },
-  -- Prettier
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-      local registry = require("mason-registry")
-      if not registry.is_installed("prettier") then
-        registry.get_package("prettier"):install()
-      end
-      if not registry.is_installed("stylua") then
-        registry.get_package("stylua"):install()
-      end
-    end,
-  },
-  {
-    "stevearc/conform.nvim",
-    event = { "VeryLazy" },
-    cmd = { "ConformInfo" },
-    opts = {
-      formatters_by_ft = {
-        lua = { "stylua" },
-        -- python = { "isort", "black" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
-      format_on_save = { timeout_ms = 500 },
-    },
-  },
 }
