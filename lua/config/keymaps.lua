@@ -40,11 +40,14 @@ vim.keymap.set("v", "<D-[>", "<gv", { desc = "Indent left" })
 vim.keymap.set("n", "<D-]>", "V>gv<esc>", { desc = "Indent right", silent = true })
 vim.keymap.set("n", "<D-[>", "V<gv<esc>", { desc = "Indent left", silent = true })
 
+vim.keymap.set({ "n", "v" }, "<leader>q", "q", { desc = "Macro" })
 vim.keymap.set("n", "q", "V", { desc = "Switch to visual line mode" })
 vim.keymap.set("v", "q", "<esc>", { desc = "Exit visual line mode" })
-vim.keymap.set({ "n", "v" }, "<leader>q", "q", { desc = "Macro" })
-vim.keymap.set({ "n" }, "<D-e>", "jvap", { desc = "Select current paragraph" })
-vim.keymap.set("v", "<D-e>", "jap", { desc = "Exit paragraph selection" })
+
+vim.keymap.set({ "n" }, "<D-p>", "jvap", { desc = "Select current paragraph" })
+vim.keymap.set("v", "<D-p>", "jap", { desc = "Select next paragraph" })
+vim.keymap.set({ "n" }, "<D-e>", "vafj", { desc = "Select current function", remap = true })
+vim.keymap.set("v", "<D-e>", "]Fj", { desc = "Select next function", remap = true })
 
 local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, "<D-f>", builtin.find_files, { desc = "Telescope find files" })
