@@ -26,13 +26,10 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
-    -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",  highlight = { enable = true } }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "nord" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
 })
 
 -- Nvim Tree
