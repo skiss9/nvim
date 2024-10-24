@@ -14,7 +14,7 @@ end
 
 local function close_buffer()
   local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buffer_count == 1 then
+  if buffer_count <= 1 then
     vim.cmd("NvimTreeClose")
     vim.cmd("quit")
   else
