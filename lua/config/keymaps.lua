@@ -1,3 +1,35 @@
+local function tree_focused()
+  local curr_buf = vim.api.nvim_get_current_buf()
+  local curr_ft = vim.api.nvim_buf_get_option(curr_buf, "filetype")
+  return curr_ft == "NvimTree"
+end
+
+local function toggle_tree_buffer()
+  if tree_focused() then
+    vim.cmd("wincmd p")
+  else
+    vim.cmd("NvimTreeFocus")
+  end
+end
+
+local function close_buffer()
+  local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
+  if buffer_count == 1 then
+    vim.cmd("NvimTreeClose")
+    vim.cmd("quit")
+  else
+    vim.cmd("bp|bd #")
+  end
+end
+
+-- Move Lines
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+
 -- Visual Line
 vim.keymap.set({ "n", "v" }, "<leader>q", "q", { desc = "Macro" })
 vim.keymap.set("n", "q", "V", { desc = "Switch to visual line mode" })
@@ -18,21 +50,13 @@ vim.keymap.set({ "n", "v" }, "<D-Up>", "gg0", { desc = "Move to the first line o
 vim.keymap.set({ "n", "v" }, "<D-Down>", "G0", { desc = "Move to the last line of the file" })
 
 -- Tree Focus
-vim.keymap.set({ "n" }, "<D-r>", "<cmd>NvimTreeFocus<CR>")
-vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><cmd>NvimTreeFocus<CR>")
+vim.keymap.set({ "n" }, "<D-r>", toggle_tree_buffer)
+vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><D-r>", { remap = true })
 
 -- Select All, Save, Close
 vim.keymap.set({ "n", "i", "v" }, "<D-a>", "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, "<D-s>", "<cmd>w<CR>", { desc = "Save", silent = true })
-vim.keymap.set("n", "<D-d>", function()
-  local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buffer_count == 1 then
-    vim.cmd("NvimTreeClose")
-    vim.cmd("quit")
-  else
-    vim.cmd("bp|bd #")
-  end
-end, { noremap = true })
+vim.keymap.set("n", "<D-d>", close_buffer, { noremap = true })
 
 -- Copy / Paste
 vim.keymap.set({ "v" }, "<D-c>", "y", { desc = "Copy" })
@@ -67,11 +91,3 @@ vim.keymap.set({ "n", "i", "v" }, "<D-i>", function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { "" })
 end, { silent = true, desc = "Insert line above without moving cursor" })
-
--- Move Lines
-vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
