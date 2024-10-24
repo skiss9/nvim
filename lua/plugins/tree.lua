@@ -38,18 +38,26 @@ return {
       { "H", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
       { "L", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     },
-    opts = {
-      options = {
-        mode = "buffers",
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = "Files",
-            highlight = "Directory",
-            separator = true,
+    config = function()
+      local bufferline = require("bufferline")
+      bufferline.setup({
+        options = {
+          mode = "buffers",
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "Files",
+              highlight = "Directory",
+              separator = true,
+            },
+          },
+          show_buffer_icons = false,
+          style_preset = {
+            bufferline.style_preset.no_italic,
+            bufferline.style_preset.no_bold,
           },
         },
-      },
-    },
+      })
+    end,
   },
 }
