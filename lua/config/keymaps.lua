@@ -24,7 +24,15 @@ vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><cmd>NvimTreeFocus<CR>")
 -- Select All, Save, Close
 vim.keymap.set({ "n", "i", "v" }, "<D-a>", "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, "<D-s>", "<cmd>w<CR>", { desc = "Save", silent = true })
-vim.keymap.set({ "n", "i", "v" }, "<D-d>", "<cmd>q!<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<D-d>", function()
+  local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
+  if buffer_count == 1 then
+    vim.cmd("NvimTreeClose")
+    vim.cmd("quit")
+  else
+    vim.cmd("bp|bd #")
+  end
+end, { noremap = true })
 
 -- Copy / Paste
 vim.keymap.set({ "v" }, "<D-c>", "y", { desc = "Copy" })
