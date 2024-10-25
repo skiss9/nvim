@@ -1,26 +1,4 @@
-local function tree_focused()
-  local curr_buf = vim.api.nvim_get_current_buf()
-  local curr_ft = vim.api.nvim_buf_get_option(curr_buf, "filetype")
-  return curr_ft == "NvimTree"
-end
-
-local function toggle_tree_buffer()
-  if tree_focused() then
-    vim.cmd("wincmd p")
-  else
-    vim.cmd("NvimTreeFocus")
-  end
-end
-
-local function close_buffer()
-  local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buffer_count <= 1 then
-    vim.cmd("NvimTreeClose")
-    vim.cmd("quit")
-  else
-    vim.cmd("bp|bd #")
-  end
-end
+require("config/keyfns")
 
 vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 vim.keymap.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
@@ -44,12 +22,12 @@ vim.keymap.set({ "n", "v" }, "<D-Right>", "$", { desc = "Move to the end of the 
 vim.keymap.set({ "n", "v" }, "<D-Up>", "gg0", { desc = "Move to the first line of the file" })
 vim.keymap.set({ "n", "v" }, "<D-Down>", "G0", { desc = "Move to the last line of the file" })
 
-vim.keymap.set({ "n" }, "<D-r>", toggle_tree_buffer, { desc = "Toggle between tree and buffers" })
+vim.keymap.set({ "n" }, "<D-r>", keyfns.toggle_tree_buffer, { desc = "Toggle between tree and buffers" })
 vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><D-r>", { desc = "Toggle between tree and buffers", remap = true })
 
 vim.keymap.set({ "n", "i", "v" }, "<D-a>", "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, "<D-s>", "<cmd>w<CR>", { desc = "Save", silent = true })
-vim.keymap.set({ "n", "i", "v" }, "<D-d>", close_buffer, { desc = "Close buffer", noremap = true })
+vim.keymap.set({ "n", "i", "v" }, "<D-d>", keyfns.close_buffer, { desc = "Close buffer", noremap = true })
 
 vim.keymap.set({ "v" }, "<D-c>", "y", { desc = "Copy" })
 vim.keymap.set({ "n", "v" }, "<D-v>", "p", { desc = "Paste" })
@@ -70,15 +48,9 @@ vim.keymap.set("v", "<D-e>", "]Fj", { desc = "Select next function", remap = tru
 local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, "<D-f>", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set({ "n", "i", "v" }, "<D-g>", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
 
+vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
 vim.keymap.set({ "n", "v" }, "<leader>i", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
 
-vim.keymap.set({ "n", "i", "v" }, "<D-u>", function()
-  local current_line = vim.fn.line(".")
-  vim.api.nvim_buf_set_lines(0, current_line, current_line, false, { "" })
-end, { silent = true, desc = "Insert line below without moving cursor" })
-vim.keymap.set({ "n", "i", "v" }, "<D-i>", function()
-  local current_line = vim.fn.line(".")
-  vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { "" })
-end, { silent = true, desc = "Insert line above without moving cursor" })
+vim.keymap.set({ "n", "i", "v" }, "<D-u>", keyfns.insert_line_above, { silent = true, desc = "Insert line above" })
+vim.keymap.set({ "n", "i", "v" }, "<D-u>", keyfns.insert_line_below, { silent = true, desc = "Insert line below" })
