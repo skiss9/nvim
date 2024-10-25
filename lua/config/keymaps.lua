@@ -52,5 +52,5 @@ vim.keymap.set({ "n", "i", "v" }, cmd("g"), builtin.live_grep, { desc = "Telesco
 vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
 vim.keymap.set({ "n", "v" }, "<leader>i", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
 
-vim.keymap.set({ "n", "i", "v" }, cmd("u"), keyfns.insert_line_above, { silent = true, desc = "Insert line above" })
+vim.keymap.set({ "n", "i", "v" }, cmd("i"), keyfns.insert_line_above, { silent = true, desc = "Insert line above" })
 vim.keymap.set({ "n", "i", "v" }, cmd("u"), keyfns.insert_line_below, { silent = true, desc = "Insert line below" })
