@@ -1,5 +1,12 @@
 keyfns = {}
 
+keyfns.cmd = function(key)
+  if not vim.g.neovide then
+    return "<M-" .. key .. ">"
+  end
+  return "<D-" .. key .. ">"
+end
+
 local function tree_focused()
   local curr_buf = vim.api.nvim_get_current_buf()
   local curr_ft = vim.api.nvim_buf_get_option(curr_buf, "filetype")
