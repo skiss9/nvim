@@ -50,13 +50,13 @@ vim.keymap.set({ "n", "v" }, "<D-Up>", "gg0", { desc = "Move to the first line o
 vim.keymap.set({ "n", "v" }, "<D-Down>", "G0", { desc = "Move to the last line of the file" })
 
 -- Tree Focus
-vim.keymap.set({ "n" }, "<D-r>", toggle_tree_buffer)
-vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><D-r>", { remap = true })
+vim.keymap.set({ "n" }, "<D-r>", toggle_tree_buffer, { desc = "Toggle between tree and buffers" })
+vim.keymap.set({ "i", "v" }, "<D-r>", "<esc><D-r>", { desc = "Toggle between tree and buffers", remap = true })
 
 -- Select All, Save, Close
 vim.keymap.set({ "n", "i", "v" }, "<D-a>", "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, "<D-s>", "<cmd>w<CR>", { desc = "Save", silent = true })
-vim.keymap.set({ "n", "i", "v" }, "<D-d>", close_buffer, { noremap = true })
+vim.keymap.set({ "n", "i", "v" }, "<D-d>", close_buffer, { desc = "Close buffer", noremap = true })
 
 -- Copy / Paste
 vim.keymap.set({ "v" }, "<D-c>", "y", { desc = "Copy" })
