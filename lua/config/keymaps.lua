@@ -1,4 +1,3 @@
-require("config/keyfns")
 local cmd = keyfns.cmd
 
 vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })

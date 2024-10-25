@@ -1,5 +1,3 @@
-require("config/keyfns")
-
 return {
   {
     "shaunsingh/nord.nvim",
