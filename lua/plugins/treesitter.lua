@@ -37,9 +37,9 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "<C-j>",
-            node_incremental = "<C-j>",
-            scope_incremental = "<C-k>",
+            init_selection = "<leader>i",
+            node_incremental = "<leader>i",
+            scope_incremental = "<leader>o",
             node_decremental = "<bs>",
           },
         },
