@@ -11,8 +11,8 @@ vim.opt.fillchars = { eob = " " }
 vim.o.confirm = true
 vim.o.swapfile = false
 vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
-
-vim.g.nord_italic = false
+vim.opt.fillchars:append({ vert = " " })
 
 vim.g.neovide_cursor_animation_length = 0
---vim.g.mousescroll = "ver:1,hor:0"
+
+vim.g.nord_italic = false

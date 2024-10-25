@@ -46,9 +46,7 @@ return {
           offsets = {
             {
               filetype = "NvimTree",
-              text = "Files",
-              highlight = "Directory",
-              separator = true,
+              highlight = "NvimTreeHeader",
             },
           },
           show_buffer_icons = false,
