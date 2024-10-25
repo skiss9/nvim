@@ -17,10 +17,13 @@ return {
             file = true,
           },
           glyphs = {
-            default = "",
             folder = {
-              arrow_closed = "▸",
-              arrow_open = "▾",
+              -- default = "",
+              -- open = "",
+              -- arrow_closed = "▸",
+              -- arrow_open = "▾",
+              arrow_closed = " ",
+              arrow_open = " ",
             },
           },
         },
@@ -29,7 +32,6 @@ return {
   },
   {
     "nvim-tree/nvim-web-devicons",
-    opts = { color_icons = false },
   },
   {
     "akinsho/bufferline.nvim",
