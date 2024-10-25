@@ -81,6 +81,7 @@ vim.keymap.set("v", "<D-e>", "]Fj", { desc = "Select next function", remap = tru
 local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, "<D-f>", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set({ "n", "i", "v" }, "<D-g>", builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set({ "n", "i", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Telescope highlights" })
 
 -- Insert Lines
 vim.keymap.set({ "n", "i", "v" }, "<D-u>", function()
