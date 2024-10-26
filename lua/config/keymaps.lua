@@ -1,5 +1,5 @@
 local keyfns = require("config.keyfns")
-local cmd = keyfns.cmd
+local cmd = require("config.cmd-key")
 
 vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 vim.keymap.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
@@ -41,10 +41,10 @@ vim.keymap.set("v", cmd("["), "<gv", { desc = "Indent left" })
 vim.keymap.set("n", cmd("]"), "V>gv<esc>", { desc = "Indent right", silent = true })
 vim.keymap.set("n", cmd("["), "V<gv<esc>", { desc = "Indent left", silent = true })
 
-vim.keymap.set("n", cmd("p"), "jvap", { desc = "Select current paragraph" })
-vim.keymap.set("v", cmd("p"), "jap", { desc = "Select next paragraph" })
-vim.keymap.set("n", cmd("e"), "vafj", { desc = "Select current function", remap = true })
-vim.keymap.set("v", cmd("e"), "]Fj", { desc = "Select next function", remap = true })
+vim.keymap.set("n", cmd("p"), keyfns.select_paragraph, { desc = "Select paragraph", silent = true })
+vim.keymap.set("v", cmd("p"), "ap", { desc = "Select next paragraph" })
+vim.keymap.set("n", cmd("e"), keyfns.select_function, { desc = "Select function" })
+vim.keymap.set("v", cmd("e"), keyfns.goto_function_end, { desc = "Select next function" })
 
 local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, cmd("f"), builtin.find_files, { desc = "Telescope find files" })

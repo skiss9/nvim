@@ -1,4 +1,4 @@
-local cmd = require("config.keyfns").cmd
+local cmd = require("config.cmd-key")
 
 return {
   {

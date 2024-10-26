@@ -1,11 +1,7 @@
 local M = {}
 
-M.cmd = function(key)
-  if not vim.g.neovide then
-    return "<M-" .. key .. ">"
-  end
-  return "<D-" .. key .. ">"
-end
+local textOjbectSelect = require("nvim-treesitter.textobjects.select")
+local textOjbectMove = require("nvim-treesitter.textobjects.move")
 
 local function tree_focused()
   local curr_buf = vim.api.nvim_get_current_buf()
@@ -39,6 +35,20 @@ end
 M.insert_line_below = function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line, current_line, false, { "" })
+end
+
+M.select_paragraph = function()
+  vim.cmd("normal! jvap", { silent = true })
+end
+
+M.select_function = function()
+  textOjbectSelect.select_textobject("@function.outer", "textobjects", "V")
+  vim.cmd("normal! j", { silent = true })
+end
+
+M.goto_function_end = function()
+  textOjbectMove.goto_next_end("@function.outer", "textobjects")
+  vim.cmd("normal! j", { silent = true })
 end
 
 return M
