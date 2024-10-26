@@ -1,6 +1,6 @@
-keyfns = {}
+local M = {}
 
-keyfns.cmd = function(key)
+M.cmd = function(key)
   if not vim.g.neovide then
     return "<M-" .. key .. ">"
   end
@@ -13,7 +13,7 @@ local function tree_focused()
   return curr_ft == "NvimTree"
 end
 
-keyfns.toggle_tree_buffer = function()
+M.toggle_tree_buffer = function()
   if tree_focused() then
     vim.cmd("wincmd p")
   else
@@ -21,7 +21,7 @@ keyfns.toggle_tree_buffer = function()
   end
 end
 
-keyfns.close_buffer = function()
+M.close_buffer = function()
   local buffer_count = #vim.fn.getbufinfo({ buflisted = 1 })
   if buffer_count <= 1 then
     vim.cmd("NvimTreeClose")
@@ -31,12 +31,14 @@ keyfns.close_buffer = function()
   end
 end
 
-keyfns.insert_line_above = function()
+M.insert_line_above = function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { "" })
 end
 
-keyfns.insert_line_below = function()
+M.insert_line_below = function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line, current_line, false, { "" })
 end
+
+return M

@@ -1,3 +1,4 @@
+local keyfns = require("config.keyfns")
 local cmd = keyfns.cmd
 
 vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -23,7 +24,7 @@ vim.keymap.set({ "n", "v" }, cmd("Up"), "gg0", { desc = "Move to the first line 
 vim.keymap.set({ "n", "v" }, cmd("Down"), "G0", { desc = "Move to the last line of the file" })
 
 vim.keymap.set({ "n" }, cmd("r"), keyfns.toggle_tree_buffer, { desc = "Toggle between tree and buffers" })
-vim.keymap.set({ "i", "v" }, cmd("r"), "<esc><D-r>", { desc = "Toggle between tree and buffers", remap = true })
+vim.keymap.set({ "i", "v" }, cmd("r"), "<esc>" .. cmd("r"), { desc = "Toggle between tree and buffers", remap = true })
 
 vim.keymap.set({ "n", "i", "v" }, cmd("a"), "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, cmd("s"), "<cmd>w<CR>", { desc = "Save", silent = true })
