@@ -41,9 +41,9 @@ vim.keymap.set("v", cmd("["), "<gv", { desc = "Indent left" })
 vim.keymap.set("n", cmd("]"), "V>gv<esc>", { desc = "Indent right", silent = true })
 vim.keymap.set("n", cmd("["), "V<gv<esc>", { desc = "Indent left", silent = true })
 
-vim.keymap.set({ "n" }, cmd("p"), "jvap", { desc = "Select current paragraph" })
+vim.keymap.set("n", cmd("p"), "jvap", { desc = "Select current paragraph" })
 vim.keymap.set("v", cmd("p"), "jap", { desc = "Select next paragraph" })
-vim.keymap.set({ "n" }, cmd("e"), "vafj", { desc = "Select current function", remap = true })
+vim.keymap.set("n", cmd("e"), "vafj", { desc = "Select current function", remap = true })
 vim.keymap.set("v", cmd("e"), "]Fj", { desc = "Select next function", remap = true })
 
 local builtin = require("telescope.builtin")
