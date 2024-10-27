@@ -1,6 +1,7 @@
 return {
   {
     "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       update_focused_file = {
         enable = true,
@@ -18,10 +19,6 @@ return {
           },
           glyphs = {
             folder = {
-              -- default = "",
-              -- open = "",
-              -- arrow_closed = "▸",
-              -- arrow_open = "▾",
               arrow_closed = " ",
               arrow_open = " ",
             },
@@ -29,9 +26,6 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-tree/nvim-web-devicons",
   },
   {
     "akinsho/bufferline.nvim",
