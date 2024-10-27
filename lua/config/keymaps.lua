@@ -50,8 +50,10 @@ local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, cmd("f"), builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set({ "n", "i", "v" }, cmd("g"), builtin.live_grep, { desc = "Telescope live grep" })
 
-vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
-vim.keymap.set({ "n", "v" }, "<leader>i", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
-
-vim.keymap.set({ "n", "i", "v" }, cmd("i"), keyfns.insert_line_above, { silent = true, desc = "Insert line above" })
+vim.keymap.set({ "n", "i", "v" }, cmd("i"), keyfns.insert_line_above, { silent = true, desc = "insert line above" })
 vim.keymap.set({ "n", "i", "v" }, cmd("u"), keyfns.insert_line_below, { silent = true, desc = "Insert line below" })
+
+vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
+vim.keymap.set({ "n", "v" }, "<leader>d", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
+vim.keymap.set({ "n", "v" }, "<leader>i", "<cmd>Inspect<CR>", { desc = "Inspect Element with Treesitter" })
+vim.keymap.set({ "n", "v" }, "<leader>o", "<cmd>InspectTree<CR>", { desc = "Inspect Tree with Treesitter" })
