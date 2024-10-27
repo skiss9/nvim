@@ -1,13 +1,7 @@
+local colors = require("config.colors")
 local cmd = require("config.cmd-key")
 
 return {
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme nord]])
-    end,
-  },
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
@@ -34,6 +28,19 @@ return {
     opts = {
       options = {
         globalstatus = true,
+        theme = {
+          normal = {
+            a = { bg = colors.blue, fg = colors.dark },
+            b = { bg = colors.dark3, fg = colors.white },
+            c = { bg = colors.dark, fg = colors.white },
+          },
+          insert = {
+            a = { bg = colors.green, fg = colors.dark },
+          },
+          visual = {
+            a = { bg = colors.magenta, fg = colors.white },
+          },
+        },
       },
     },
   },
