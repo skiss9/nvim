@@ -1,4 +1,3 @@
-local colors = require("config.colors")
 local cmd = require("config.cmd-key")
 
 return {
@@ -21,29 +20,4 @@ return {
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        globalstatus = true,
-        theme = {
-          normal = {
-            a = { bg = colors.blue, fg = colors.dark },
-            b = { bg = colors.dark3, fg = colors.white },
-            c = { bg = colors.dark, fg = colors.white },
-          },
-          insert = {
-            a = { bg = colors.green, fg = colors.dark },
-          },
-          visual = {
-            a = { bg = colors.magenta, fg = colors.white },
-          },
-        },
-      },
-    },
-  },
-  { "rcarriga/nvim-notify" },
-  { "folke/noice.nvim", opts = { cmdline = { enabled = true } } },
 }
