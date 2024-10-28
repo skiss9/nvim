@@ -1,7 +1,7 @@
 local M = {}
 
-local textOjbectSelect = require("nvim-treesitter.textobjects.select")
-local textOjbectMove = require("nvim-treesitter.textobjects.move")
+local textObjectSelect = require("nvim-treesitter.textobjects.select")
+local textObjectMove = require("nvim-treesitter.textobjects.move")
 
 local function tree_focused()
   local curr_buf = vim.api.nvim_get_current_buf()
@@ -42,12 +42,12 @@ M.select_paragraph = function()
 end
 
 M.select_function = function()
-  textOjbectSelect.select_textobject("@function.outer", "textobjects", "V")
+  textObjectSelect.select_textobject("@function.outer", "textobjects", "V")
   vim.cmd("normal! j", { silent = true })
 end
 
 M.goto_function_end = function()
-  textOjbectMove.goto_next_end("@function.outer", "textobjects")
+  textObjectMove.goto_next_end("@function.outer", "textobjects")
   vim.cmd("normal! j", { silent = true })
 end
 
