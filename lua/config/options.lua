@@ -10,6 +10,7 @@ vim.o.ignorecase = true
 vim.opt.fillchars = { eob = " " }
 vim.o.confirm = true
 vim.o.swapfile = false
+vim.opt.showmode = false
 vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 vim.opt.fillchars:append({ vert = " " })
 
