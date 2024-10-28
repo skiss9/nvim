@@ -71,6 +71,15 @@ local function setHighlights()
   vim.api.nvim_set_hl(0, "@constant", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "@number", { fg = colors.blue2 })
   vim.api.nvim_set_hl(0, "@operator", { fg = colors.magenta })
+
+  vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = colors.magenta })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = colors.magenta })
+  vim.api.nvim_set_hl(0, "DiagnosticSignWarning", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarning", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = colors.yellow })
 end
 
 setHighlights()
