@@ -1,24 +1,23 @@
 local colors = require("config.colors")
 
 local function setHighlights()
-  local sidebarBackground = "#1C202C"
-  local folderColor = "#C43076"
-  local iconColor = "#78C2D2"
+  local folderColor = colors.magenta2
+  local iconColor = colors.blue3
 
-  vim.api.nvim_set_hl(0, "Search", { fg = "#FFFFFF", bg = "#19AFB7" })
-  vim.api.nvim_set_hl(0, "CurSearch", { fg = "#FFFFFF", bg = "#E65E9E" })
-  vim.api.nvim_set_hl(0, "IncSearch", { fg = "#FFFFFF", bg = "#1E8A90" })
+  vim.api.nvim_set_hl(0, "Search", { fg = colors.white, bg = "#19AFB7" })
+  vim.api.nvim_set_hl(0, "CurSearch", { fg = colors.white, bg = "#E65E9E" })
+  vim.api.nvim_set_hl(0, "IncSearch", { fg = colors.white, bg = "#1E8A90" })
   vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#000000", bg = "#ECEFF4" })
 
-  vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = sidebarBackground })
-  vim.api.nvim_set_hl(0, "NvimTreeHeader", { bg = sidebarBackground })
-  vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = folderColor })
+  vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = colors.dark })
+  vim.api.nvim_set_hl(0, "NvimTreeHeader", { bg = colors.dark })
+  vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = colors.magenta })
   vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = folderColor })
   vim.api.nvim_set_hl(0, "NvimTreeFolderArrowClosed", { fg = folderColor })
   vim.api.nvim_set_hl(0, "NvimTreeFolderArrowOpen", { fg = folderColor })
 
-  vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#FFFFFF" })
-  vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = "#FFFFFF" })
+  vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = colors.white2 })
+  vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = colors.white2 })
 
   vim.api.nvim_set_hl(0, "DevIconJs", { fg = iconColor })
   vim.api.nvim_set_hl(0, "DevIconTs", { fg = iconColor })
@@ -57,7 +56,7 @@ local function setHighlights()
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = colors.dark2 })
   vim.api.nvim_set_hl(0, "LineNr", { fg = colors.dark3 })
 
-  vim.api.nvim_set_hl(0, "@function.call", { fg = colors.white })
+  vim.api.nvim_set_hl(0, "@function.call", { fg = colors.white2 })
   vim.api.nvim_set_hl(0, "@function", { fg = colors.blue4 })
   vim.api.nvim_set_hl(0, "@variable.parameter", { fg = colors.blue2 })
   vim.api.nvim_set_hl(0, "@variable", { fg = colors.blue3 })
