@@ -34,7 +34,9 @@ vim.keymap.set({ "v" }, cmd("c"), "y", { desc = "Copy" })
 vim.keymap.set({ "n", "v" }, cmd("v"), "p", { desc = "Paste" })
 vim.keymap.set({ "i" }, cmd("v"), "<esc>pa", { desc = "Paste" })
 
-vim.keymap.set({ "n", "i" }, cmd("/"), "gcc", { desc = "Comment line", remap = true })
+vim.keymap.set("n", cmd("/"), "gcc", { desc = "Comment line", remap = true })
+vim.keymap.set("i", cmd("/"), "<esc>gcc", { desc = "Comment line", remap = true })
+
 vim.keymap.set("v", cmd("/"), "gc", { desc = "Comment block", remap = true })
 vim.keymap.set("v", cmd("]"), ">gv", { desc = "Indent right" })
 vim.keymap.set("v", cmd("["), "<gv", { desc = "Indent left" })
