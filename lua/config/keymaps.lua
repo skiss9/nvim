@@ -28,7 +28,7 @@ vim.keymap.set({ "i", "v" }, cmd("r"), "<esc>" .. cmd("r"), { desc = "Toggle bet
 
 vim.keymap.set({ "n", "i", "v" }, cmd("a"), "gg0VG", { desc = "Select all" })
 vim.keymap.set({ "n", "i", "v" }, cmd("s"), "<cmd>w<CR>", { desc = "Save", silent = true })
-vim.keymap.set({ "n", "i", "v" }, cmd("d"), keyfns.close_buffer, { desc = "Close buffer", noremap = true })
+vim.keymap.set({ "n", "i", "v" }, cmd("d"), keyfns.close_buffer, { desc = "Close buffer" })
 
 vim.keymap.set({ "v" }, cmd("c"), "y", { desc = "Copy" })
 vim.keymap.set({ "n", "v" }, cmd("v"), "p", { desc = "Paste" })
