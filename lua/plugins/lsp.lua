@@ -2,7 +2,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "eslint", "lua_ls" },
+      ensure_installed = { "eslint", "ts_ls", "svelte", "lua_ls" },
     },
   },
   {
@@ -15,6 +15,8 @@ return {
         },
       })
       lspconfig.eslint.setup({})
+      lspconfig.ts_ls.setup({})
+      lspconfig.svelte.setup({})
       lspconfig.lua_ls.setup({})
     end,
   },
