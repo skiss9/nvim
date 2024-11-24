@@ -20,4 +20,13 @@ return {
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
   },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      open_mapping = "<D-t>",
+      size = 20,
+      highlights = { Normal = { link = "ToggleTerm" } },
+    },
+  },
 }

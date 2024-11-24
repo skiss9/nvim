@@ -15,9 +15,10 @@ local function setHighlights()
   vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = folderColor })
   vim.api.nvim_set_hl(0, "NvimTreeFolderArrowClosed", { fg = folderColor })
   vim.api.nvim_set_hl(0, "NvimTreeFolderArrowOpen", { fg = folderColor })
-
   vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = colors.white2 })
   vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = colors.white2 })
+
+  vim.api.nvim_set_hl(0, "ToggleTerm", { bg = colors.dark })
 
   vim.api.nvim_set_hl(0, "DevIconJs", { fg = iconColor })
   vim.api.nvim_set_hl(0, "DevIconTs", { fg = iconColor })
