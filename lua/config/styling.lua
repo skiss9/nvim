@@ -54,7 +54,7 @@ local function setHighlights()
   vim.api.nvim_set_hl(0, "DevIconLicense", { fg = iconColor })
 
   vim.api.nvim_set_hl(0, "Normal", { bg = colors.dark2 })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = colors.dark2 })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = colors.dark })
   vim.api.nvim_set_hl(0, "LineNr", { fg = colors.dark3 })
 
   vim.api.nvim_set_hl(0, "@function.call", { fg = colors.white2 })
