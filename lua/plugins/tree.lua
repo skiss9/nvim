@@ -3,6 +3,9 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
+      filters = {
+        custom = { "^.DS_Store$" },
+      },
       update_focused_file = {
         enable = true,
       },
