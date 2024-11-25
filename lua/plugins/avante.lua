@@ -1,11 +1,21 @@
+local cmd = require("config.cmd-key")
+
+local function toggle()
+  require("avante").toggle()
+  vim.cmd("stopinsert")
+end
+
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
+  keys = {
+    { cmd("o"), toggle, desc = "Toggle Avante", mode = { "n", "i", "v" } },
+  },
   opts = {
     mappings = {
-      ask = "<leader>v",
+      ask = "<leader>aa",
       edit = "<leader>e",
       refresh = "<leader>r",
     },
