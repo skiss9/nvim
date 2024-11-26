@@ -51,12 +51,12 @@ vim.keymap.set("v", cmd("["), "<gv", { desc = "Indent left" })
 vim.keymap.set("n", cmd("]"), "V>gv<esc>", { desc = "Indent right", silent = true })
 vim.keymap.set("n", cmd("["), "V<gv<esc>", { desc = "Indent left", silent = true })
 
+vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition, { desc = "LSP go to definition" })
+vim.keymap.set({ "n", "v" }, "<leader>r", vim.lsp.buf.rename, { desc = "LSP rename" })
+
 local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, cmd("f"), builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set({ "n", "i", "v" }, cmd("g"), builtin.live_grep, { desc = "Telescope live grep" })
-
-vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition, { desc = "LSP go to definition" })
-vim.keymap.set({ "n", "v" }, "<leader>r", vim.lsp.buf.rename, { desc = "LSP rename" })
 
 vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
 vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
