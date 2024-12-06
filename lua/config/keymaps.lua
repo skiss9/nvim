@@ -16,6 +16,8 @@ vim.keymap.set("v", cmd("p"), "ap", { desc = "Select next paragraph" })
 vim.keymap.set("n", cmd("e"), keyfns.select_function, { desc = "Select function" })
 vim.keymap.set("v", cmd("e"), keyfns.goto_function_end, { desc = "Select next function" })
 
+vim.keymap.set({ "n" }, "<cr>", "ciw", { desc = "Change word" })
+
 vim.keymap.set({ "n", "i", "v" }, cmd("i"), keyfns.insert_line_above, { silent = true, desc = "Insert line above" })
 vim.keymap.set({ "n", "i", "v" }, cmd("u"), keyfns.insert_line_below, { silent = true, desc = "Insert line below" })
 
@@ -41,6 +43,7 @@ vim.keymap.set({ "n", "i", "v" }, cmd("d"), keyfns.close_buffer, { desc = "Close
 vim.keymap.set({ "v" }, cmd("c"), "y", { desc = "Copy" })
 vim.keymap.set({ "n", "v" }, cmd("v"), "p", { desc = "Paste" })
 vim.keymap.set({ "i" }, cmd("v"), "<esc>pa", { desc = "Paste" })
+vim.keymap.set({ "n", "i", "v" }, cmd("z"), "<C-r>", { desc = "Redo" })
 
 vim.keymap.set("n", cmd("/"), "gcc", { desc = "Comment line", remap = true })
 vim.keymap.set("i", cmd("/"), "<esc>gcc", { desc = "Comment line", remap = true })
