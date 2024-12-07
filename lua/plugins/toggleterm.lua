@@ -25,6 +25,12 @@ return {
       open_mapping = "<D-t>",
       size = 20,
       highlights = { Normal = { link = "ToggleTerm" } },
+      -- Fix issue where terminal is not in insert mode after toggle
+      on_open = function()
+        vim.defer_fn(function()
+          vim.cmd("startinsert")
+        end, 1)
+      end,
     },
   },
 }
