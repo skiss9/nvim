@@ -23,7 +23,7 @@ return {
     version = "*",
     opts = {
       open_mapping = "<D-t>",
-      size = 20,
+      size = 30,
       highlights = { Normal = { link = "ToggleTerm" } },
       -- Fix issue where terminal is not in insert mode after toggle
       on_open = function()
