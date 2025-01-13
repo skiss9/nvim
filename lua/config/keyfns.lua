@@ -27,6 +27,27 @@ M.close_buffer = function()
   end
 end
 
+-- Stop scrolling once the last line of the file is a few lines above the bottom of the window
+M.scroll_down = function(isMouse)
+  local default_scroll_amount = isMouse and 3 or 15
+  local window_height = vim.fn.winheight(0)
+  local first_visible_line = vim.fn.line("w0")
+  local last_line = vim.fn.line("$")
+  local min_visible_lines = window_height - 5
+  local max_scroll_line = last_line - min_visible_lines
+  if first_visible_line < max_scroll_line then
+    local scroll_amount = math.min(default_scroll_amount, max_scroll_line - first_visible_line)
+    vim.cmd.normal({ scroll_amount .. "\x05", bang = true }) -- \x05 is <C-e>
+  end
+  if not isMouse then
+    vim.cmd.normal("M")
+  end
+end
+
+M.mouse_scroll_down = function()
+  M.scroll_down(true)
+end
+
 M.insert_line_above = function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { "" })

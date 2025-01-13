@@ -1,8 +1,9 @@
 local keyfns = require("config.keyfns")
 local cmd = require("config.cmd-key")
 
-vim.keymap.set({ "n", "v" }, cmd("j"), "15<C-e>M", { desc = "Scroll down" })
 vim.keymap.set({ "n", "v" }, cmd("k"), "15<C-y>M", { desc = "Scroll up" })
+vim.keymap.set({ "n", "v" }, cmd("j"), keyfns.scroll_down, { desc = "Scroll down" })
+vim.keymap.set({ "n", "v" }, "<ScrollWheelDown>", keyfns.mouse_scroll_down, { desc = "Mouse scroll down" })
 
 vim.keymap.set("n", "q", "V", { desc = "Switch to visual line mode" })
 vim.keymap.set("v", "q", "<esc>", { desc = "Exit visual line mode" })
