@@ -20,8 +20,4 @@ return {
       lspconfig.lua_ls.setup({})
     end,
   },
-  {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    event = "VeryLazy",
-  },
 }

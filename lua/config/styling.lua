@@ -41,6 +41,8 @@ local function setHighlights()
 
   vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = colors.magenta })
   vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = colors.magenta })
+  vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.magenta })
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = colors.magenta, underline = true })
   vim.api.nvim_set_hl(0, "DiagnosticSignWarning", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarning", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = colors.yellow })

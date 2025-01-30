@@ -55,7 +55,8 @@ vim.keymap.set({ "n", "i", "v" }, cmd("g"), builtin.live_grep, { desc = "Telesco
 
 vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition, { desc = "LSP go to definition" })
 vim.keymap.set({ "n", "v" }, "<leader>r", vim.lsp.buf.rename, { desc = "LSP rename" })
-vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
-vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all Web Dev Icons" })
+vim.keymap.set({ "n", "v" }, "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic dialog" })
 vim.keymap.set({ "n", "v" }, "<leader>i", "<cmd>Inspect<CR>", { desc = "Inspect element with treesitter" })
 vim.keymap.set({ "n", "v" }, "<leader>o", "<cmd>InspectTree<CR>", { desc = "Inspect tree with treesitter" })
+vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>Telescope highlights<CR>", { desc = "Show all highlights" })
+vim.keymap.set({ "n", "v" }, "<leader>w", "<cmd>NvimWebDeviconsHiTest<CR>", { desc = "Show all web dev icons" })
