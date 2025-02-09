@@ -15,4 +15,6 @@ vim.opt.showmode = false
 vim.opt.fillchars = { eob = " " }
 vim.opt.fillchars:append({ vert = " " })
 
+vim.diagnostic.config({ signs = false }) -- Disable the diagnostic indicator
+
 vim.g.neovide_cursor_animation_length = 0

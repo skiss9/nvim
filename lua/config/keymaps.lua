@@ -7,7 +7,8 @@ vim.keymap.set({ "n", "v" }, "<ScrollWheelDown>", keyfns.mouse_scroll_down, { de
 
 vim.keymap.set("n", "q", "V", { desc = "Switch to visual line mode" })
 vim.keymap.set("v", "q", "<esc>", { desc = "Exit visual line mode" })
-vim.keymap.set({ "n", "v" }, "<leader>q", "q", { desc = "Macro" })
+vim.keymap.set({ "n", "v" }, "2", keyfns.toggle_macro, { desc = "Toggle macro recording" })
+vim.keymap.set({ "n", "v" }, "3", "@a", { desc = "Replay macro" })
 
 vim.keymap.set({ "n", "v" }, ",", "{", { desc = "Move to previous paragraph" })
 vim.keymap.set({ "n", "v" }, "m", "}", { desc = "Move to next paragraph" })
@@ -16,6 +17,9 @@ vim.keymap.set("n", cmd("p"), keyfns.select_paragraph, { desc = "Select paragrap
 vim.keymap.set("v", cmd("p"), "ap", { desc = "Select next paragraph" })
 vim.keymap.set("n", cmd("e"), keyfns.select_function, { desc = "Select function" })
 vim.keymap.set("v", cmd("e"), keyfns.goto_function_end, { desc = "Select next function" })
+
+vim.keymap.set({ "n", "v" }, "9", "0", { desc = "Move to start of the line" })
+vim.keymap.set({ "n", "v" }, "0", "$", { desc = "Move to end of the line" })
 
 vim.keymap.set({ "n" }, "<cr>", "ciw", { desc = "Change word" })
 

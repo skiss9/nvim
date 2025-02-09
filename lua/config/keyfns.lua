@@ -48,6 +48,15 @@ M.mouse_scroll_down = function()
   M.scroll_down(true)
 end
 
+M.toggle_macro = function()
+  local recording_register = vim.fn.reg_recording()
+  if recording_register == "" then
+    vim.cmd("normal! qa", "n", false)
+  else
+    vim.cmd("normal! q", "n", false)
+  end
+end
+
 M.insert_line_above = function()
   local current_line = vim.fn.line(".")
   vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { "" })
