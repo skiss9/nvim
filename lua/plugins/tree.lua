@@ -6,6 +6,9 @@ return {
       filters = {
         custom = { "^.DS_Store$" },
       },
+      git = {
+        enable = false,
+      },
       update_focused_file = {
         enable = true,
       },
