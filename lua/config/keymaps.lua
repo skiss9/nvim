@@ -57,6 +57,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set({ "n", "i", "v" }, cmd("f"), builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set({ "n", "i", "v" }, cmd("g"), builtin.live_grep, { desc = "Telescope live grep" })
 
+vim.keymap.set({ "n", "v" }, cmd(";"), vim.lsp.buf.hover, { desc = "LSP hover info" })
 vim.keymap.set({ "n", "v" }, "<leader>d", vim.lsp.buf.definition, { desc = "LSP go to definition" })
 vim.keymap.set({ "n", "v" }, "<leader>r", vim.lsp.buf.rename, { desc = "LSP rename" })
 vim.keymap.set({ "n", "v" }, "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic dialog" })
