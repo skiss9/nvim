@@ -13,6 +13,7 @@ return {
           "c",
           "css",
           "diff",
+          "haskell",
           "html",
           "javascript",
           "jsdoc",

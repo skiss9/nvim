@@ -34,7 +34,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
       require("mason-lspconfig").setup({
-        ensure_installed = { "eslint", "ts_ls", "svelte", "lua_ls" },
+        ensure_installed = { "eslint", "ts_ls", "svelte", "lua_ls", "hls" },
         automatic_installation = true,
         handlers = {
           function(server_name)
