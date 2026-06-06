@@ -9,11 +9,13 @@ local function tree_focused()
   return curr_ft == "NvimTree"
 end
 
-M.toggle_tree_buffer = function()
+M.focus_tree = function()
+  vim.cmd("NvimTreeFocus")
+end
+
+M.focus_buffer = function()
   if tree_focused() then
     vim.cmd("wincmd p")
-  else
-    vim.cmd("NvimTreeFocus")
   end
 end
 
